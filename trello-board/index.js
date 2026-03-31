@@ -23,11 +23,22 @@ const BOARDS = [];
 const ISSUES = [];
 
 
+
+
+
 const app = express();
 app.use(express.json());
 
 
 // We are making a CRUD operation, here are the C operations, I mean CREATE operations
+
+
+// MongoDB
+// deepaktomss_db_user
+// 4nz8XSzcUEIoUMJ1
+
+// mongodb+srv://deepaktomss_db_user:4nz8XSzcUEIoUMJ1@cluster0.4igvjh7.mongodb.net/
+
 
 
 app.post("/signup", (req,res) => {
@@ -223,4 +234,18 @@ app.delete("/members", authMiddleware, (req, res) => {
 
 })
 
-app.listen(3001);
+
+app.get("/", function(req, res) {
+    res.sendFile("D:/Bootcamp1/trello-board/frontend/index.html")
+})
+
+app.get("/signup", function(req, res) {
+    res.sendFile("D:/Bootcamp1/trello-board/frontend/signup.html")
+})
+
+app.get("/signin", function(req, res) {
+    res.sendFile("D:/Bootcamp1/trello-board/frontend/signin.html")
+})
+
+
+app.listen(3000);

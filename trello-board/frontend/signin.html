@@ -4,9 +4,21 @@
 
     </head>
     <body>
+        <script>
+            async function signin() {
+                const username = document.getElementById("username").value 
+                const password = document.getElementById("password").value
+                const response = await axios.post("http://localhost:3000/signin", {
+                    username, password
+                })
+                const token = response.data.token;
+                localStorage.setItem("token", token);
+                window.location = '/'
+            }
+        </script>
         <input id="username" type="text" placeholder="username">
-        <input id="username" type="text" placeholder="username">
-        <input id="username" type="text" placeholder="username">
+        <input id="password" type="password" placeholder="password">
+        <button onclick="signin()">Sign In</button>
 
     </body>
 </html>
